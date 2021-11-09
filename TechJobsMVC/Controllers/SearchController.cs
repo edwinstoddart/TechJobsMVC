@@ -28,13 +28,15 @@ namespace TechJobsMVC.Controllers
             {
                 ViewBag.title = "All Jobs";
                 jobs = JobData.FindAll();
+
+                ViewBag.searchType = "all";
             } else {
                 ViewBag.title = $"Jobs With {searchType}: {searchTerm}";
                 jobs = JobData.FindByColumnAndValue(searchType, searchTerm);
+                ViewBag.searchType = searchType;
             }
             ViewBag.jobs = jobs;
             ViewBag.columns = ListController.ColumnChoices;
-            ViewBag.searchType = searchType;
 
             return View("Index", searchType);
         }

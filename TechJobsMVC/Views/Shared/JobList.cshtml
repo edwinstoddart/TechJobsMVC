@@ -1,0 +1,43 @@
+﻿@foreach (Job job in ViewBag.jobs)
+{
+    <table class="job-listing">
+        <tbody>
+            <tr>
+                <th scope="row">ID</th>
+                <td>
+                    @job.Id
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Name</th>
+                <td>
+                    @job.Name
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Employer</th>
+                <td>
+                    <a asp-controller="List" asp-action="Jobs" asp-route-column="employer" asp-route-value="@job.Employer">@job.Employer</a>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Location</th>
+                <td>
+                    <a asp-controller="List" asp-action="Jobs" asp-route-column="location" asp-route-value="@job.Location">@job.Location</a>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Position Type</th>
+                <td>
+                    <a asp-controller="List" asp-action="Jobs" asp-route-column="positionType" asp-route-value="@job.PositionType">@job.PositionType</a>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Skill</th>
+                <td>
+                    <a asp-controller="List" asp-action="Jobs" asp-route-column="coreCompetency" asp-route-value="@job.CoreCompetency">@job.CoreCompetency</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+}
