@@ -15,6 +15,7 @@ namespace TechJobsMVC.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
+            ViewBag.searchType = "all";
             ViewBag.columns = ListController.ColumnChoices;
             return View();
         }
@@ -33,8 +34,9 @@ namespace TechJobsMVC.Controllers
             }
             ViewBag.jobs = jobs;
             ViewBag.columns = ListController.ColumnChoices;
+            ViewBag.searchType = searchType;
 
-            return View("Index");
+            return View("Index", searchType);
         }
     }
 }
